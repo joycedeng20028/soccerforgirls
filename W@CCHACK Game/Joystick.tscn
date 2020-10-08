@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Joystick_Button.gd" type="Script" id=1]
+[ext_resource path="res://circle-cropped (1).png" type="Texture" id=2]
+[ext_resource path="res://circle-cropped (3).png" type="Texture" id=3]
+[ext_resource path="res://circle-cropped (2).png" type="Texture" id=4]
+
+[node name="Joystick" type="Sprite"]
+position = Vector2( 338.5, 304.5 )
+scale = Vector2( 0.138542, 0.138542 )
+texture = ExtResource( 4 )
+
+[node name="Joystick_Button" type="TouchScreenButton" parent="."]
+position = Vector2( -263.459, -277.896 )
+scale = Vector2( 0.322556, 0.322556 )
+normal = ExtResource( 2 )
+pressed = ExtResource( 3 )
+script = ExtResource( 1 )
