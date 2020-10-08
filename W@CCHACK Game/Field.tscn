@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -7,58 +7,98 @@
 [ext_resource path="res://Op_GoalKeeper.gd" type="Script" id=5]
 [ext_resource path="res://Goalkeeper.gd" type="Script" id=6]
 [ext_resource path="res://movebuttons.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Chilanka-Regular.ttf" type="DynamicFontData" id=8]
 
-[sub_resource type="PhysicsMaterial" id=1]
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 17, 400 )
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 613, 16 )
-
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=1]
 radius = 32.0
 
+[sub_resource type="PhysicsMaterial" id=2]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 17, 400 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 613, 16 )
+
 [sub_resource type="CircleShape2D" id=5]
+radius = 32.0
 
 [sub_resource type="CircleShape2D" id=6]
 radius = 32.0
 
 [sub_resource type="CircleShape2D" id=7]
-radius = 32.0
+
+[sub_resource type="DynamicFont" id=8]
+size = 80
+font_data = ExtResource( 8 )
 
 [node name="World" type="Node"]
 
+[node name="Background" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+margin_right = 1024.0
+margin_bottom = 576.0
+color = Color( 0.607843, 0.823529, 0.447059, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Goalkeeper" type="KinematicBody2D" parent="."]
+position = Vector2( 96, 287 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Goalkeeper"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goalkeeper"]
+shape = SubResource( 1 )
+
 [node name="Walls" type="StaticBody2D" parent="."]
-physics_material_override = SubResource( 1 )
+scale = Vector2( 0.935686, 0.892903 )
+physics_material_override = SubResource( 2 )
 
 [node name="wall_left" type="CollisionShape2D" parent="Walls"]
 position = Vector2( -17, 320 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="wall_right" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 1112, 320 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="wall_top" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 556, -16 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="wall_bottom" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 556, 655 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
+
+[node name="Op_GoalKeeper" type="KinematicBody2D" parent="."]
+position = Vector2( 928, 289 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Op_GoalKeeper"]
+self_modulate = Color( 1, 0, 0, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Op_GoalKeeper"]
+shape = SubResource( 5 )
 
 [node name="football" type="RigidBody2D" parent="."]
-position = Vector2( 544, 321 )
+position = Vector2( 509, 293 )
 input_pickable = true
 gravity_scale = 0.0
 custom_integrator = true
 contacts_reported = 1
 contact_monitor = true
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="football"]
 scale = Vector2( 0.67353, 0.67353 )
@@ -66,13 +106,10 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="football"]
 scale = Vector2( 0.658597, 0.658597 )
-shape = SubResource( 4 )
-
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 470, 320 )
+shape = SubResource( 6 )
 
 [node name="Opponent" type="KinematicBody2D" parent="."]
-position = Vector2( 624, 320 )
+position = Vector2( 609, 288 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true
@@ -84,35 +121,33 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Opponent"]
 scale = Vector2( 3.09615, 3.09615 )
-shape = SubResource( 5 )
-
-[node name="Op_GoalKeeper" type="KinematicBody2D" parent="."]
-position = Vector2( 1038, 325 )
-script = ExtResource( 5 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Op_GoalKeeper"]
-self_modulate = Color( 1, 0, 0, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Op_GoalKeeper"]
-shape = SubResource( 6 )
-
-[node name="Goalkeeper" type="KinematicBody2D" parent="."]
-position = Vector2( 65, 320 )
-script = ExtResource( 6 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Goalkeeper"]
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Goalkeeper"]
 shape = SubResource( 7 )
 
-[node name="movebuttons" parent="." instance=ExtResource( 7 )]
-position = Vector2( 93, 559 )
+[node name="Score" type="Node2D" parent="."]
+
+[node name="Character " type="Node2D" parent="."]
+
+[node name="Player" parent="Character " instance=ExtResource( 1 )]
+position = Vector2( 416, 288 )
+
+[node name="movebuttons" parent="Character " instance=ExtResource( 7 )]
+position = Vector2( 106, 487 )
 scale = Vector2( 0.604077, 0.604077 )
+
+[node name="AI" type="Node2D" parent="."]
+
+[node name="UI" type="Node2D" parent="."]
+visible = false
+
+[node name="Title" type="Label" parent="UI"]
+margin_left = 1.0
+margin_top = 15.0
+margin_right = 1025.0
+margin_bottom = 104.0
+custom_fonts/font = SubResource( 8 )
+text = "She Kicks"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
