@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Chilanka-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://movebuttons.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://UserInterface.gd" type="Script" id=7]
 [ext_resource path="res://Opponent.gd" type="Script" id=8]
 [ext_resource path="res://soccerball.png" type="Texture" id=9]
+[ext_resource path="res://Op_GoalKeeper.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Goalkeeper.tscn" type="PackedScene" id=11]
 
 [sub_resource type="PhysicsMaterial" id=2]
 
@@ -207,4 +209,10 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Goalkeeper" parent="." instance=ExtResource( 11 )]
+position = Vector2( 64, 288 )
+
+[node name="Op_GoalKeeper" parent="." instance=ExtResource( 10 )]
+position = Vector2( 960, 288 )
 [connection signal="area_entered" from="football/Detect" to="football" method="_on_Detect_area_entered"]
