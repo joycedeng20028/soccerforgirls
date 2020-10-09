@@ -1,0 +1,253 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://main.gd" type="Script" id=1]
+[ext_resource path="res://bgpurple.jpg" type="Texture" id=2]
+[ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://smallerfont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=5]
+[ext_resource path="res://WhatsApp Image 2020-10-09 at 7.44.11 PM.jpeg" type="Texture" id=6]
+[ext_resource path="res://WhatsApp Image 2020-10-09 at 7.44.11 PM (1).jpeg" type="Texture" id=7]
+[ext_resource path="res://WhatsApp Image 2020-10-09 at 7.44.11 PM (3).jpeg" type="Texture" id=8]
+[ext_resource path="res://WhatsApp Image 2020-10-09 at 7.44.11 PM copy.jpeg" type="Texture" id=9]
+[ext_resource path="res://WhatsApp Image 2020-10-09 at 7.44.11 PM (2).jpeg" type="Texture" id=10]
+[ext_resource path="res://WhatsApp Image 2020-10-09 at 7.44.12 PM.jpeg" type="Texture" id=11]
+[ext_resource path="res://Sprite4.gd" type="Script" id=12]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Area2D
+var pressed = false;
+onready var Rlabel = get_node(\"/root/RichTextLabel2\")
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+func _ready():
+	pass 
+# Called when the node enters the scene tree for the first time.
+func _input(event):
+	if event is InputEventMouseButton:
+		var LabelRich = get_node(\"RichTextLabel2\")
+		LabelRich.text = \"Angela Hucles! Hucles is an african american woman changing the face of USA's soccer. Hucles is also a two-time Olympic gold medalist and two-time World Cup bronze medalist. She was the U.S. Women’s National Team’s leading scorer in the 2008 Olympic Games. Her philanthropy work has extended to working with programs for underserved middle school girls.\"
+		return true
+
+
+
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 47.9901, 50.8633 )
+
+[node name="main" type="Control"]
+mouse_filter = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 384, 198 )
+script = SubResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="Area2D"]
+margin_left = -382.0
+margin_top = -200.0
+margin_right = 656.0
+margin_bottom = 407.0
+mouse_filter = 2
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sprite" type="Sprite" parent="Area2D"]
+position = Vector2( -275.149, 291.532 )
+scale = Vector2( 0.688121, 0.775497 )
+texture = ExtResource( 5 )
+
+[node name="collision" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -283.642, 290.762 )
+shape = SubResource( 2 )
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Area2D"]
+margin_left = 124.0
+margin_top = -184.0
+margin_right = 602.0
+margin_bottom = 142.0
+mouse_filter = 2
+custom_fonts/mono_font = ExtResource( 3 )
+custom_fonts/bold_italics_font = ExtResource( 3 )
+custom_fonts/italics_font = ExtResource( 3 )
+custom_fonts/bold_font = ExtResource( 3 )
+custom_fonts/normal_font = ExtResource( 4 )
+custom_colors/default_color = Color( 0.917647, 0.894118, 0.894118, 1 )
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Area2D"]
+margin_left = 533.919
+margin_top = 128.651
+margin_right = 599.919
+margin_bottom = 194.651
+mouse_filter = 2
+custom_fonts/mono_font = ExtResource( 3 )
+custom_fonts/bold_italics_font = ExtResource( 3 )
+custom_fonts/italics_font = ExtResource( 3 )
+custom_fonts/bold_font = ExtResource( 3 )
+custom_fonts/normal_font = ExtResource( 4 )
+custom_colors/default_color = Color( 0.917647, 0.894118, 0.894118, 1 )
+text = "Carli Loyd"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="P1Label" type="RichTextLabel" parent="Area2D"]
+margin_left = -308.651
+margin_top = 139.837
+margin_right = -166.651
+margin_bottom = 220.837
+mouse_filter = 2
+custom_fonts/mono_font = ExtResource( 3 )
+custom_fonts/bold_italics_font = ExtResource( 3 )
+custom_fonts/italics_font = ExtResource( 3 )
+custom_fonts/bold_font = ExtResource( 3 )
+custom_fonts/normal_font = ExtResource( 4 )
+custom_colors/default_color = Color( 0.917647, 0.894118, 0.894118, 1 )
+text = "Angela Hucles
+
+"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="P5" type="RichTextLabel" parent="Area2D"]
+margin_left = 359.837
+margin_top = 125.426
+margin_right = 509.837
+margin_bottom = 203.426
+mouse_filter = 2
+custom_fonts/mono_font = ExtResource( 3 )
+custom_fonts/bold_italics_font = ExtResource( 3 )
+custom_fonts/italics_font = ExtResource( 3 )
+custom_fonts/bold_font = ExtResource( 3 )
+custom_fonts/normal_font = ExtResource( 4 )
+custom_colors/default_color = Color( 0.917647, 0.894118, 0.894118, 1 )
+text = "Megan Rapinoe"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="P4" type="RichTextLabel" parent="Area2D"]
+margin_left = 183.306
+margin_top = 134.57
+margin_right = 301.306
+margin_bottom = 224.57
+mouse_filter = 2
+custom_fonts/mono_font = ExtResource( 3 )
+custom_fonts/bold_italics_font = ExtResource( 3 )
+custom_fonts/italics_font = ExtResource( 3 )
+custom_fonts/bold_font = ExtResource( 3 )
+custom_fonts/normal_font = ExtResource( 4 )
+custom_colors/default_color = Color( 0.917647, 0.894118, 0.894118, 1 )
+text = "Abby Wambach"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="P3" type="RichTextLabel" parent="Area2D"]
+margin_left = 40.6938
+margin_top = 131.264
+margin_right = 138.694
+margin_bottom = 229.264
+mouse_filter = 2
+custom_fonts/mono_font = ExtResource( 3 )
+custom_fonts/bold_italics_font = ExtResource( 3 )
+custom_fonts/italics_font = ExtResource( 3 )
+custom_fonts/bold_font = ExtResource( 3 )
+custom_fonts/normal_font = ExtResource( 4 )
+custom_colors/default_color = Color( 0.917647, 0.894118, 0.894118, 1 )
+text = "Alex Morgan"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="P2Label" type="RichTextLabel" parent="Area2D"]
+margin_left = -124.899
+margin_top = 138.488
+margin_right = 29.1009
+margin_bottom = 220.488
+mouse_filter = 2
+custom_fonts/mono_font = ExtResource( 3 )
+custom_fonts/bold_italics_font = ExtResource( 3 )
+custom_fonts/italics_font = ExtResource( 3 )
+custom_fonts/bold_font = ExtResource( 3 )
+custom_fonts/normal_font = ExtResource( 4 )
+custom_colors/default_color = Color( 0.917647, 0.894118, 0.894118, 1 )
+text = "Danielle Slaton
+
+"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 36.0
+margin_top = 4.0
+margin_right = 522.0
+margin_bottom = 194.0
+mouse_filter = 2
+custom_fonts/mono_font = ExtResource( 3 )
+custom_fonts/bold_italics_font = ExtResource( 3 )
+custom_fonts/italics_font = ExtResource( 3 )
+custom_fonts/bold_font = ExtResource( 3 )
+custom_fonts/normal_font = ExtResource( 3 )
+custom_colors/default_color = Color( 0.917647, 0.894118, 0.894118, 1 )
+text = "Choose your player!"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 955.859, 476.414 )
+scale = Vector2( 0.230173, 0.248575 )
+texture = ExtResource( 9 )
+
+[node name="Sprite6" type="Sprite" parent="."]
+position = Vector2( 799.383, 480.643 )
+scale = Vector2( 0.230173, 0.248575 )
+texture = ExtResource( 8 )
+
+[node name="Sprite5" type="Sprite" parent="."]
+position = Vector2( 631.311, 483.272 )
+scale = Vector2( 0.245957, 0.245171 )
+texture = ExtResource( 11 )
+
+[node name="Sprite4" type="Sprite" parent="."]
+position = Vector2( 466.73, 480.986 )
+scale = Vector2( 0.222879, 0.204253 )
+texture = ExtResource( 10 )
+script = ExtResource( 12 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( 109.71, 484.899 )
+scale = Vector2( 0.245471, 0.24432 )
+texture = ExtResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 303.089, 483.574 )
+scale = Vector2( 0.251701, 0.223312 )
+texture = ExtResource( 7 )
